@@ -1,6 +1,6 @@
 export interface Item {
     description: string;
-    code: number;
+    code: string;
     role: 'AGENT' | 'RN' | 'MD';
     active: boolean;
     last_modified: string;
