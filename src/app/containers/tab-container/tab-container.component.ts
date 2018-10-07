@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
 import { Item } from '../../store/models';
+import { Store } from '@ngrx/store';
+import { State } from '../../store/reducers/item.reducer';
+
 
 @Component({
   selector: 'app-tab-container',
@@ -10,10 +12,10 @@ import { Item } from '../../store/models';
 export class TabContainerComponent implements OnInit {
   items: Item[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private store: Store<{ items: State }>) { }
 
   ngOnInit() {
-    this.dataService.getItems().then(data => { this.items = data; console.log(data); });
+    this.store.select( state => state.items ).subscribe (items => this.items = items.itemlist );
   }
 
 }
