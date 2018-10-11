@@ -14,7 +14,7 @@ export class StaffTabComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.store.select( state => state.items ).subscribe (items => this.items = items );
+    this.store.select( state => state.items ).subscribe (items => this.items = [...items] );
   }
 
   openDetails(item: Item) {

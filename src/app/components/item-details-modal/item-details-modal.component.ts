@@ -36,7 +36,7 @@ export class ItemDetailsModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.select( state => state.modal ).subscribe (modal => this.state = {...modal});
+    this.store.select( state => state.modal ).subscribe (modal => this.state = JSON.parse(JSON.stringify(modal)));
   }
 
   closeModal() {
