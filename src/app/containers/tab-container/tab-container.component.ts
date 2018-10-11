@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../../store/models';
-import { Store } from '@ngrx/store';
-import { State } from '../../store/reducers/item.reducer';
 
 
 @Component({
@@ -10,12 +7,9 @@ import { State } from '../../store/reducers/item.reducer';
   styleUrls: ['./tab-container.component.scss']
 })
 export class TabContainerComponent implements OnInit {
-  items: Item[];
 
-  constructor(private store: Store<{ items: State }>) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.store.select( state => state.items ).subscribe (items => this.items = items.itemlist );
-  }
+  ngOnInit() { }
 
 }
