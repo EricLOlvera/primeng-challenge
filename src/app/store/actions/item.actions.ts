@@ -11,12 +11,11 @@ export enum ActionTypes {
 }
 
 export class AddOne implements Action {
-    readonly type = ActionTypes.ADD_ONE     ;
-    constructor(public payload: { item: Item }) {}
+    readonly type = ActionTypes.ADD_ONE;
 }
 
 export class UpdateOne implements Action {
-    readonly type = ActionTypes.UPDATE_ONE     ;
+    readonly type = ActionTypes.UPDATE_ONE;
     constructor(public payload: { item: Item }) {}
 }
 
