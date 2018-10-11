@@ -17,7 +17,7 @@ export class AddOne implements Action {
 
 export class UpdateOne implements Action {
     readonly type = ActionTypes.UPDATE_ONE     ;
-    constructor(public payload: { code: string, item: Item }) {}
+    constructor(public payload: { item: Item }) {}
 }
 
 export class LoadRequest implements Action {
