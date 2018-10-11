@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Item, AppState } from '../../store/models';
 import { Store } from '@ngrx/store';
-import { ActionTypes } from '../../store/actions/modal.actions';
+import * as ModalActions from '../../store/actions/modal.actions';
+import * as ItemActions from '../../store/actions/item.actions';
 
 @Component({
   selector: 'app-staff-tab',
@@ -18,6 +19,10 @@ export class StaffTabComponent implements OnInit {
   }
 
   openDetails(item: Item) {
-    this.store.dispatch({type: ActionTypes.OPEN_WITH, payload: {item: {...item}}});
+    this.store.dispatch({type: ModalActions.ActionTypes.OPEN_WITH, payload: {item: {...item}}});
+  }
+
+  addItem() {
+    this.store.dispatch({type: ItemActions.ActionTypes.ADD_ONE});
   }
 }

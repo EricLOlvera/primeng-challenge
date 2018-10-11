@@ -24,6 +24,7 @@ export class ItemDetailsModalComponent implements OnInit {
 
   constructor(private store: Store<AppState> ) {
     this.roles = [
+      {label: 'Select', value: null},
       {label: 'MD', value: 'MD'},
       {label: 'RN', value: 'RN'},
       {label: 'AGENT', value: 'AGENT'}
@@ -53,7 +54,7 @@ export class ItemDetailsModalComponent implements OnInit {
 
   save() {
     this.store.dispatch({type: ItemActions.ActionTypes.UPDATE_ONE, payload: {item: this.state.content}});
-    close();
+    this.closeModal();
   }
 
   toggleActive() {
