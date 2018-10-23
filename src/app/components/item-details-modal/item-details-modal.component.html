@@ -1,0 +1,23 @@
+<p-dialog header="Update Staff Type" [(visible)]="state.visible" (onHide)="closeModal()">
+
+  <div class="content-contianer">
+    <span>Staff Type Code</span>
+    <input type="text" pInputText [(ngModel)]="state.content.code" (change)="updateItem()"/>
+    <span>Staff Type Description</span>
+    <input type="text" pInputText [(ngModel)]="state.content.description" (change)="updateItem()"/>
+    <span>Staff Role</span>
+    <p-dropdown [options]="roles" [(ngModel)]="state.content.role" (onChange)="updateItem()"></p-dropdown>
+    <span>Enable After Call Work</span>
+    <p-dropdown [options]="boolOpt" [(ngModel)]="state.content.after_call_work" [disabled]="!state.content.active" (onChange)="updateItem()"></p-dropdown>
+    <span>Restrict Call History</span>
+    <p-dropdown [options]="boolOpt" [(ngModel)]="state.content.restrict_call_history" [disabled]="!state.content.active" (onChange)="updateItem()"></p-dropdown>
+  </div>
+
+  <p-footer class="modal-footer">
+    <button type="button" pButton class="ui-button-secondary" label="{{state.content.active ? 'Deactivate' : 'Activate'}}"(click)="toggleActive()"></button>
+    <div class="btn-group">
+      <button type="button" pButton class="ui-button-secondary" label="Cancel" (click)="closeModal()"></button>
+      <button type="button" pButton [disabled]="!state.isDirty" label="Save" (click)="save()"></button>
+    </div>
+  </p-footer>
+</p-dialog>

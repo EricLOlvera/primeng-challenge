@@ -1,0 +1,11 @@
+.content-contianer {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 1rem;
+    padding: 2rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
